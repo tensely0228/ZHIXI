@@ -27,6 +27,13 @@ Describe what you'd like ZHIXI to do differently.
 
 Any other approaches you've thought about?
 
+## Target Users & Frequency
+
+- Who would benefit from this? (e.g., all users, specific workflow, edge case)
+- How often would this be needed? (e.g., every session, occasionally, rarely)
+
 ## Additional Context
 
 Mockups, examples, links to related tools or frameworks.
+
+- [ ] I would be willing to help implement or test this feature

@@ -9,6 +9,7 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+*~
 
 # Environment
 .env
@@ -16,6 +17,21 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Build artifacts
+dist/
+build/
+*.bak
+*.tmp
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Node
+node_modules/
+package-lock.json
 
 # QoderWork internal
 .qoderworkcn/

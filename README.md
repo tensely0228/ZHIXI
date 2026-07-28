@@ -7,7 +7,7 @@
 **Turn Vague Ideas Into Clear Actions, Leave Traceable Knowledge**
 
 [![License](https://img.shields.io/github/license/tensely0228/ZHIXI?style=flat-square)](./LICENSE)
-[![Version](https://img.shields.io/badge/version-1.0.1-blue?style=flat-square)](./CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.1.0-blue?style=flat-square)](./CHANGELOG.md)
 [![QoderWork](https://img.shields.io/badge/QoderWork-Skill-7c3aed?style=flat-square)](https://docs.qoder.com/qoderwork/introduction)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](./CONTRIBUTING.md)
 
@@ -418,6 +418,31 @@ tags:
 
 你可以把碎片存在 Git 仓库、笔记应用、静态站点中，或者在其上构建自定义搜索索引。格式始终不变。
 
+### 设想：理想化的知识库是什么样？
+
+> **声明：** 以下是知悉知识碎片格式的**理想化应用场景**，作者本人尚未搭建和实现任何配套工具或知识库系统。这里描述的是这套格式**有能力支撑**的方向，属于明需阶段理论推演的产物，供有兴趣的开发者参考。
+
+想象这样的使用场景：
+
+```
+knowledge/
+├── inbox/                          ← 新碎片自动归入
+│   └── 2026-07-28-pdf-parser.md
+├── tech-evaluation/                ← 技术评估类
+│   ├── pdf-parser-chinese.md       (confidence: 0.85)
+│   └── async-vs-sync-for-io.md     (confidence: 0.70)
+├── architecture/                   ← 架构决策类
+│   └── event-driven-vs-request.md  (confidence: 0.90)
+├── decision-rules/                 ← 决策规则类
+│   └── pdf-library-selection.md    (confidence: 0.90)
+└── deprecated/                     ← 已过时
+    └── old-api-endpoint-map.md     (replaced by: new-api-v3.md)
+```
+
+如果有开发者愿意在此基础上构建配套工具——比如扫描目录、校验 frontmatter、按 `kind` 和 `tags` 索引、追踪置信度——那将是这套格式的理想归宿。但目前这些都还不存在。
+
+但这些都是格式之上的**上层建筑**。知悉本身只定义格式——保证碎片"长什么样"，不规定"存在哪里"和"怎么管理"。
+
 ---
 
 ## 架构
@@ -450,6 +475,8 @@ tags:
 
 - [从模糊想法到行动方案](./examples/vague-idea-to-action.md) — 把一个粗略的产品想法转化为结构化方案
 - [知识碎片示例](./examples/knowledge-fragment-example.md) — 沉淀出的知识碎片长什么样
+- [团队流程改进](./examples/team-process-improvement.md) — 在抵触、时间压力和工具争议下推广代码审查
+- [高级知识碎片](./examples/advanced-knowledge-fragments.md) — 多种 `kind` 类型的碎片：风险边界、开放问题、决策规则、已弃用
 
 ---
 
@@ -535,18 +562,164 @@ A: 不会。知悉定义知识沉淀的格式和方法论。存储、索引和�
 <details>
 <summary>Click to expand English summary</summary>
 
-**ZHIXI (知悉)** is an AI Agent skill for [QoderWork](https://docs.qoder.com/qoderwork/introduction) that transforms vague requests into actionable plans through a four-stage thinking framework:
+### What is ZHIXI?
 
-1. **知己 (Self-Knowledge)** — Distinguish surface request from real goal
-2. **问己 (Self-Questioning)** — Clarify value, constraints, success criteria
-3. **明需 (Requirement Clarity)** — Decompose into capability units + select tools
-4. **洞意 (Insight & Execution)** — Execute, verify, and capture knowledge
+**ZHIXI (知悉)** is an AI Agent skill for [QoderWork](https://docs.qoder.com/qoderwork/introduction) that bridges the gap between what you *think* you want and what you *actually* need. It applies a structured four-stage thinking framework to turn vague requests into executable plans — and defines a knowledge capture format to help you retain reusable, traceable knowledge along the way.
 
-**Key features:** Zero additional dependencies, evidence-based reasoning (every claim tagged as fact/inference/suggestion), intent preservation, agent handoff guidelines, and a structured knowledge fragment format with confidence scoring.
+Most AI conversations start with a fuzzy prompt and end with a half-baked answer. ZHIXI changes that: at every stage it forces clarification — understanding your real goal, examining assumptions, decomposing capability units, and executing with traceable evidence.
 
-**Important:** ZHIXI is a methodology and format specification. It does not include built-in knowledge storage — the fragment format is designed for user-provided infrastructure.
+**No extra API keys, no additional dependencies — it runs inside your existing QoderWork session.**
 
-**Quick start:** Install QoderWork, copy `skill/SKILL.md` to `~/.qoderworkcn/skills/zhixi/`, then say "知悉" or "zhixi" in any conversation.
+### Core Features
+
+- **Four-Stage Thinking Framework** — A structured flow from understanding to execution; no steps skipped
+- **Knowledge Capture Format** — Defines traceable, reusable knowledge fragments with confidence scoring (storage infrastructure is user-provided)
+- **Agent Handoff Awareness** — Includes guidelines for multi-agent collaboration and context transfer
+- **Zero Extra Dependencies** — No additional APIs or keys required; works with any LLM your workspace supports
+- **Intent Preservation** — Your original request is always kept verbatim, never silently rewritten
+- **Evidence-Based Reasoning** — Every conclusion is tagged as fact / inference / suggestion, with sources tracked
+
+### How It Works
+
+| Stage | Name | What Happens | Output |
+|-------|------|-------------|--------|
+| 1 | **知己 Self-Knowledge** | Preserve the original request; separate facts from assumptions; ask 1–3 pivotal questions | Requirement baseline |
+| 2 | **问己 Self-Questioning** | Define value and success criteria; identify constraints and trade-offs; lock down the next key decision | Requirement baseline |
+| 3 | **明需 Requirement Clarity** | Decompose into capability units; match tools and skills; assess risks and fallback paths | Capability inventory |
+| 4 | **洞意 Insight & Execution** | Execute and verify; label conclusions as fact / inference / suggestion; output traceable knowledge fragments | Plan + knowledge |
+
+> **Unverified conclusions are automatically capped at confidence ≤ 0.6.** No fabrication, no hallucination — every claim traces back to evidence.
+
+### Quick Start
+
+**Prerequisites**
+
+- [QoderWork](https://docs.qoder.com/qoderwork/introduction) desktop app installed (macOS or Windows)
+- Any LLM configured in your workspace (ZHIXI works with whatever model you use)
+
+**Installation**
+
+1. Copy `skill/SKILL.md` to the QoderWork skills directory:
+
+```bash
+# macOS / Linux
+mkdir -p ~/.qoderworkcn/skills/zhixi
+cp skill/SKILL.md ~/.qoderworkcn/skills/zhixi/SKILL.md
+```
+
+```powershell
+# Windows (PowerShell)
+New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.qoderworkcn\skills\zhixi"
+Copy-Item "skill\SKILL.md" "$env:USERPROFILE\.qoderworkcn\skills\zhixi\SKILL.md"
+```
+
+2. Done. No configuration needed.
+
+**Usage**
+
+In any QoderWork conversation, simply say:
+
+> **zhixi** — I want to build [your idea]
+
+You can also use the Chinese trigger word:
+
+> **知悉** — 我想做一个 [your idea]
+
+ZHIXI will activate the four-stage framework and walk you through the problem step by step.
+
+**Example prompts:**
+
+```
+zhixi — I want to build a personal finance tracker that auto-categorizes expenses and generates monthly reports
+zhixi — Help me think through rolling out a code review process for my team — I don't know where to start
+zhixi — I want to create an internal knowledge base to consolidate scattered docs and tribal knowledge
+```
+
+**Trigger words:** `zhixi`, `知悉`, `知己`, `问己`, `明需`, `洞意`, `四阶段流程`, `知悉式任务拆解`, `把想法变清晰`, `帮我理清思路`, `需求澄清`, `意图分析`
+
+### When to Use / When Not to Use
+
+| When to use ZHIXI | When NOT to use ZHIXI |
+|-------------------|----------------------|
+| Turning a vague idea into an actionable plan | Simple factual questions ("How do I read a file in Python?") |
+| Long-horizon task decomposition and planning | One-liner requests ("Format this JSON for me") |
+| You have a clear goal but the path is unclear | Casual chat or open-ended brainstorming |
+| Decisions that need multi-perspective trade-off analysis | You already have a complete plan and just need execution |
+| Cross-session knowledge capture | One-off tasks that don't need reuse |
+
+> **Rule of thumb:** If you need AI to help you *think clearly before acting*, use ZHIXI. If you already know what to do and just need AI to *do it*, ask directly.
+
+### Knowledge Capture
+
+ZHIXI defines a format specification for knowledge capture — it prescribes what knowledge fragments **should look like**, but not **where they live**.
+
+> **Important:** ZHIXI is a methodology and format specification. It does **not** include a built-in knowledge store, database, or search system. The fragment format is designed for you to store, index, and query with infrastructure of your own choosing.
+
+**Knowledge Slots** (generated in Stage 3):
+
+```json
+{
+  "id": "slot-1-node-id",
+  "title": "What needs to be known",
+  "question": "A single question to answer after execution",
+  "kind": "procedure",
+  "targetNodeId": "node-id",
+  "requiredEvidence": ["Actual execution result", "Source or file path", "Applicability boundaries"],
+  "destinationHint": "inbox"
+}
+```
+
+Supported `kind` values: `principle`, `procedure`, `decision_rule`, `data_contract`, `verified_finding`, `risk_boundary`, `open_question`
+
+**Knowledge Fragments** (generated in Stage 4):
+
+Each fragment is a standalone, sanitized Markdown document with YAML frontmatter:
+
+```markdown
+---
+type: knowledge-fragment
+status: candidate
+privacy: sanitized
+source: "Source URL or description"
+confidence: 0.8
+tags:
+  - knowledge/fragment
+---
+
+# A Reusable, Self-Contained Title
+
+## Summary
+## Facts
+## Inferences
+## Suggestions
+## Applicability Boundaries
+## Sources
+```
+
+Fragments are designed to be:
+
+- **File-based** — Each fragment is a standalone Markdown file that can live anywhere
+- **Searchable** — YAML frontmatter is indexable by any text search tool
+- **Portable** — Move fragments between systems with no vendor lock-in
+
+You can store fragments in a Git repo, a note-taking app, a static site, or build a custom search index on top. The format stays the same.
+
+### FAQ
+
+**Q: Does ZHIXI work with all LLMs?**
+A: Yes. ZHIXI is a prompt-level skill — it works with any model your QoderWork workspace supports.
+
+**Q: Does it send data to external servers?**
+A: No. Everything runs locally inside your QoderWork session. No additional external dependencies.
+
+**Q: Can I use it outside QoderWork?**
+A: `SKILL.md` is a structured prompt. You can adapt it to other AI frameworks, but it is designed and tested for QoderWork.
+
+**Q: How is ZHIXI different from just asking AI to "think step by step"?**
+A: ZHIXI enforces a specific four-stage structure, preserves your original intent, provides a knowledge fragment format, and includes agent handoff guidelines — it is a complete methodology, not just a prompting trick.
+
+**Q: Does ZHIXI automatically store and manage my knowledge fragments?**
+A: No. ZHIXI defines the format and methodology for knowledge capture. Storage, indexing, and retrieval infrastructure are up to you. Think of it as a specification, not a product.
 
 </details>
 

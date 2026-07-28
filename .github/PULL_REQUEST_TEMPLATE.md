@@ -2,12 +2,17 @@
 
 Brief description of what this PR does.
 
+## Related Issues
+
+Closes # (issue number, if applicable)
+
 ## Type of Change
 
 - [ ] Bug fix
 - [ ] New feature / improvement to existing stage
 - [ ] Documentation update
 - [ ] New example
+- [ ] Breaking change (incompatible change to the four-stage flow or knowledge fragment format)
 - [ ] Other
 
 ## Changes

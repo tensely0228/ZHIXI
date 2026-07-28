@@ -51,9 +51,12 @@ an individual is officially representing the community in public spaces.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the community leaders responsible for enforcement at
-[GitHub Issues](https://github.com/tensely0228/ZHIXI/issues).
-All complaints will be reviewed and investigated promptly and fairly.
+reported to the community leaders responsible for enforcement via
+[GitHub's private vulnerability reporting](https://github.com/tensely0228/ZHIXI/security/advisories/new) (select "Report a code of conduct violation" in the description).
+All complaints will be reviewed and investigated within 48 hours, and will
+result in a response that is deemed necessary and appropriate to the
+circumstances. The project team is obligated to maintain confidentiality
+with regard to the reporter of an incident.
 
 ## Attribution
 

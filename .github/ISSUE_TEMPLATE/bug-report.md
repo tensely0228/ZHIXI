@@ -23,6 +23,13 @@ A clear description of what went wrong.
 - Model used (e.g., the model your QoderWork workspace is configured with):
 - OS:
 
+## Severity
+
+- [ ] Critical — ZHIXI produces incorrect or misleading output
+- [ ] Major — A stage or feature is unusable
+- [ ] Minor — Cosmetic or edge-case issue
+- [ ] Suggestion — Works but could be better
+
 ## Which Stage?
 
 - [ ] 知己 (Self-Knowledge)

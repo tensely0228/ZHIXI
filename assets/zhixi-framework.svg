@@ -1,0 +1,259 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 580" font-family="'SF Pro Display','PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,sans-serif">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="35%" r="75%">
+    <stop offset="0%" stop-color="#1a1040"/>
+    <stop offset="100%" stop-color="#08080f"/>
+  </radialGradient>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(100,130,255,0.04)" stroke-width="0.5"/>
+  </pattern>
+  <filter id="gl" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="gl2" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.15"/>
+    <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.03"/>
+  </linearGradient>
+  <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#2563eb" stop-opacity="0.15"/>
+    <stop offset="100%" stop-color="#2563eb" stop-opacity="0.03"/>
+  </linearGradient>
+  <linearGradient id="g3" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#0891b2" stop-opacity="0.15"/>
+    <stop offset="100%" stop-color="#0891b2" stop-opacity="0.03"/>
+  </linearGradient>
+  <linearGradient id="g4" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#059669" stop-opacity="0.15"/>
+    <stop offset="100%" stop-color="#059669" stop-opacity="0.03"/>
+  </linearGradient>
+  <linearGradient id="bar1"><stop offset="0%" stop-color="#a78bfa"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient>
+  <linearGradient id="bar2"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#2563eb"/></linearGradient>
+  <linearGradient id="bar3"><stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#0891b2"/></linearGradient>
+  <linearGradient id="bar4"><stop offset="0%" stop-color="#34d399"/><stop offset="100%" stop-color="#059669"/></linearGradient>
+  <linearGradient id="enterG" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#c4b5fd"/><stop offset="100%" stop-color="#8b5cf6"/>
+  </linearGradient>
+  <linearGradient id="exitG" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#6ee7b7"/><stop offset="100%" stop-color="#10b981"/>
+  </linearGradient>
+</defs>
+
+<style>
+  text { user-select: none; }
+  .card { transition: opacity 0.3s; }
+  @keyframes pulse { 0%,100% { opacity: 0.6; } 50% { opacity: 1; } }
+  @keyframes dash { to { stroke-dashoffset: -20; } }
+  .flow-line { animation: dash 1.5s linear infinite; }
+  .dot-pulse { animation: pulse 2s ease-in-out infinite; }
+</style>
+
+<!-- Background -->
+<rect width="1200" height="580" fill="url(#bg)" rx="12"/>
+<rect width="1200" height="580" fill="url(#grid)" rx="12"/>
+
+<!-- HUD corner brackets -->
+<path d="M16,8 L8,8 L8,16" fill="none" stroke="rgba(139,92,246,0.25)" stroke-width="1.5"/>
+<path d="M1184,8 L1192,8 L1192,16" fill="none" stroke="rgba(139,92,246,0.25)" stroke-width="1.5"/>
+<path d="M16,572 L8,572 L8,564" fill="none" stroke="rgba(139,92,246,0.25)" stroke-width="1.5"/>
+<path d="M1184,572 L1192,572 L1192,564" fill="none" stroke="rgba(139,92,246,0.25)" stroke-width="1.5"/>
+
+<!-- Decorative side lines -->
+<line x1="28" y1="50" x2="28" y2="530" stroke="rgba(139,92,246,0.06)" stroke-width="1"/>
+<line x1="1172" y1="50" x2="1172" y2="530" stroke="rgba(139,92,246,0.06)" stroke-width="1"/>
+<text x="34" y="290" fill="rgba(139,92,246,0.12)" font-size="9" font-family="monospace" writing-mode="tb">ZHIXI-FRAMEWORK-v1.0.1</text>
+<text x="1166" y="180" fill="rgba(139,92,246,0.12)" font-size="9" font-family="monospace" writing-mode="tb">FOUR-STAGE-PIPELINE</text>
+
+<!-- Title -->
+<text x="600" y="42" text-anchor="middle" fill="#e2e8f0" font-size="20" font-weight="700" letter-spacing="3">知 悉 · 四 阶 段 思 维 框 架</text>
+<text x="600" y="64" text-anchor="middle" fill="rgba(148,163,184,0.6)" font-size="11" font-family="monospace" letter-spacing="4">ZHIXI FOUR-STAGE THINKING FRAMEWORK</text>
+<line x1="400" y1="74" x2="800" y2="74" stroke="rgba(139,92,246,0.15)" stroke-width="0.5"/>
+
+<!-- ═══ Entry Node ═══ -->
+<g filter="url(#gl)">
+  <rect x="40" y="255" width="62" height="50" rx="25" fill="url(#enterG)" opacity="0.9"/>
+</g>
+<text x="71" y="275" text-anchor="middle" fill="#fff" font-size="16">💭</text>
+<text x="71" y="295" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="10" font-weight="600">模糊想法</text>
+
+<!-- ═══ Flow Lines ═══ -->
+<!-- Entry → S1 -->
+<line x1="102" y1="280" x2="120" y2="280" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="6,4" class="flow-line" opacity="0.7"/>
+
+<!-- S1 → S2 -->
+<line x1="340" y1="280" x2="365" y2="280" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="6,4" class="flow-line" opacity="0.7"/>
+<circle cx="352" cy="280" r="3" fill="#a78bfa" class="dot-pulse"/>
+<rect x="320" y="254" width="66" height="16" rx="3" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.3)" stroke-width="0.5"/>
+<text x="353" y="265" text-anchor="middle" fill="#c4b5fd" font-size="9" font-weight="500">需求基线</text>
+
+<!-- S2 → S3 -->
+<line x1="580" y1="280" x2="605" y2="280" stroke="#3b82f6" stroke-width="2" stroke-dasharray="6,4" class="flow-line" opacity="0.7"/>
+<circle cx="592" cy="280" r="3" fill="#60a5fa" class="dot-pulse"/>
+<rect x="560" y="254" width="66" height="16" rx="3" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.3)" stroke-width="0.5"/>
+<text x="593" y="265" text-anchor="middle" fill="#93c5fd" font-size="9" font-weight="500">能力清单</text>
+
+<!-- S3 → S4 -->
+<line x1="820" y1="280" x2="845" y2="280" stroke="#06b6d4" stroke-width="2" stroke-dasharray="6,4" class="flow-line" opacity="0.7"/>
+<circle cx="832" cy="280" r="3" fill="#22d3ee" class="dot-pulse"/>
+<rect x="800" y="254" width="66" height="16" rx="3" fill="rgba(6,182,212,0.15)" stroke="rgba(6,182,212,0.3)" stroke-width="0.5"/>
+<text x="833" y="265" text-anchor="middle" fill="#67e8f9" font-size="9" font-weight="500">执行计划</text>
+
+<!-- S4 → Exit -->
+<line x1="1060" y1="280" x2="1088" y2="280" stroke="#10b981" stroke-width="2" stroke-dasharray="6,4" class="flow-line" opacity="0.7"/>
+
+<!-- ═══ Stage 1: 知己 ═══ -->
+<g class="card">
+  <rect x="125" y="90" width="210" height="380" rx="8" fill="url(#g1)" stroke="rgba(124,58,237,0.25)" stroke-width="1"/>
+  <rect x="125" y="90" width="210" height="5" rx="2.5" fill="url(#bar1)"/>
+  <!-- Stage badge -->
+  <circle cx="155" cy="125" r="14" fill="rgba(124,58,237,0.2)" stroke="rgba(124,58,237,0.5)" stroke-width="1"/>
+  <text x="155" y="130" text-anchor="middle" fill="#c4b5fd" font-size="13" font-weight="700">1</text>
+  <!-- Title -->
+  <text x="180" y="131" fill="#e2e8f0" font-size="18" font-weight="700">知己</text>
+  <text x="125" y="152" fill="rgba(196,181,253,0.5)" font-size="10" font-family="monospace" dx="16">SELF-KNOWLEDGE</text>
+  <!-- Divider -->
+  <line x1="141" y1="165" x2="319" y2="165" stroke="rgba(124,58,237,0.15)" stroke-width="0.5"/>
+  <!-- Description -->
+  <text x="141" y="190" fill="rgba(226,232,240,0.55)" font-size="11">区分表层请求与真实目标</text>
+  <!-- Steps -->
+  <circle cx="150" cy="222" r="4" fill="#a78bfa" opacity="0.8"/>
+  <text x="162" y="226" fill="rgba(226,232,240,0.85)" font-size="12">保留原始请求</text>
+  <text x="162" y="243" fill="rgba(148,163,184,0.5)" font-size="10">原样保留用户原话，不做改写</text>
+
+  <circle cx="150" cy="272" r="4" fill="#a78bfa" opacity="0.8"/>
+  <text x="162" y="276" fill="rgba(226,232,240,0.85)" font-size="12">区分事实与推断</text>
+  <text x="162" y="293" fill="rgba(148,163,184,0.5)" font-size="10">标记已陈述 vs 推断的内容</text>
+
+  <circle cx="150" cy="322" r="4" fill="#a78bfa" opacity="0.8"/>
+  <text x="162" y="326" fill="rgba(226,232,240,0.85)" font-size="12">提出关键问题</text>
+  <text x="162" y="343" fill="rgba(148,163,184,0.5)" font-size="10">最多 1-3 个能改变方向的问题</text>
+
+  <!-- Output -->
+  <rect x="141" y="380" width="178" height="30" rx="5" fill="rgba(124,58,237,0.08)" stroke="rgba(124,58,237,0.2)" stroke-width="0.5"/>
+  <text x="230" y="399" text-anchor="middle" fill="#c4b5fd" font-size="10" font-weight="500">📋 → 输出：需求基线</text>
+
+  <!-- Decorative corner -->
+  <path d="M327,90 L335,90 L335,98" fill="none" stroke="rgba(124,58,237,0.3)" stroke-width="1"/>
+  <path d="M125,462 L125,470 L133,470" fill="none" stroke="rgba(124,58,237,0.3)" stroke-width="1"/>
+</g>
+
+<!-- ═══ Stage 2: 问己 ═══ -->
+<g class="card">
+  <rect x="370" y="90" width="210" height="380" rx="8" fill="url(#g2)" stroke="rgba(37,99,235,0.25)" stroke-width="1"/>
+  <rect x="370" y="90" width="210" height="5" rx="2.5" fill="url(#bar2)"/>
+  <circle cx="400" cy="125" r="14" fill="rgba(37,99,235,0.2)" stroke="rgba(37,99,235,0.5)" stroke-width="1"/>
+  <text x="400" y="130" text-anchor="middle" fill="#93c5fd" font-size="13" font-weight="700">2</text>
+  <text x="425" y="131" fill="#e2e8f0" font-size="18" font-weight="700">问己</text>
+  <text x="370" y="152" fill="rgba(147,197,253,0.5)" font-size="10" font-family="monospace" dx="16">SELF-QUESTIONING</text>
+  <line x1="386" y1="165" x2="564" y2="165" stroke="rgba(37,99,235,0.15)" stroke-width="0.5"/>
+  <text x="386" y="190" fill="rgba(226,232,240,0.55)" font-size="11">明确价值、约束与成功标准</text>
+
+  <circle cx="395" cy="222" r="4" fill="#60a5fa" opacity="0.8"/>
+  <text x="407" y="226" fill="rgba(226,232,240,0.85)" font-size="12">明确价值标准</text>
+  <text x="407" y="243" fill="rgba(148,163,184,0.5)" font-size="10">什么算"做好了"？</text>
+
+  <circle cx="395" cy="272" r="4" fill="#60a5fa" opacity="0.8"/>
+  <text x="407" y="276" fill="rgba(226,232,240,0.85)" font-size="12">识别约束与代价</text>
+  <text x="407" y="293" fill="rgba(148,163,184,0.5)" font-size="10">不可变条件、替代路径的代价</text>
+
+  <circle cx="395" cy="322" r="4" fill="#60a5fa" opacity="0.8"/>
+  <text x="407" y="326" fill="rgba(226,232,240,0.85)" font-size="12">锁定关键决策</text>
+  <text x="407" y="343" fill="rgba(148,163,184,0.5)" font-size="10">现在最需要决定什么？</text>
+
+  <rect x="386" y="380" width="178" height="30" rx="5" fill="rgba(37,99,235,0.08)" stroke="rgba(37,99,235,0.2)" stroke-width="0.5"/>
+  <text x="475" y="399" text-anchor="middle" fill="#93c5fd" font-size="10" font-weight="500">📋 → 输出：审阅基线</text>
+
+  <path d="M572,90 L580,90 L580,98" fill="none" stroke="rgba(37,99,235,0.3)" stroke-width="1"/>
+  <path d="M370,462 L370,470 L378,470" fill="none" stroke="rgba(37,99,235,0.3)" stroke-width="1"/>
+</g>
+
+<!-- ═══ Stage 3: 明需 ═══ -->
+<g class="card">
+  <rect x="615" y="90" width="210" height="380" rx="8" fill="url(#g3)" stroke="rgba(8,145,178,0.25)" stroke-width="1"/>
+  <rect x="615" y="90" width="210" height="5" rx="2.5" fill="url(#bar3)"/>
+  <circle cx="645" cy="125" r="14" fill="rgba(8,145,178,0.2)" stroke="rgba(8,145,178,0.5)" stroke-width="1"/>
+  <text x="645" y="130" text-anchor="middle" fill="#67e8f9" font-size="13" font-weight="700">3</text>
+  <text x="670" y="131" fill="#e2e8f0" font-size="18" font-weight="700">明需</text>
+  <text x="615" y="152" fill="rgba(103,232,249,0.5)" font-size="10" font-family="monospace" dx="16">REQUIREMENT CLARITY</text>
+  <line x1="631" y1="165" x2="809" y2="165" stroke="rgba(8,145,178,0.15)" stroke-width="0.5"/>
+  <text x="631" y="190" fill="rgba(226,232,240,0.55)" font-size="11">拆解需求为能力单元</text>
+
+  <circle cx="640" cy="222" r="4" fill="#22d3ee" opacity="0.8"/>
+  <text x="652" y="226" fill="rgba(226,232,240,0.85)" font-size="12">拆解能力单元</text>
+  <text x="652" y="243" fill="rgba(148,163,184,0.5)" font-size="10">目标、输入/输出、验收标准</text>
+
+  <circle cx="640" cy="272" r="4" fill="#22d3ee" opacity="0.8"/>
+  <text x="652" y="276" fill="rgba(226,232,240,0.85)" font-size="12">匹配工具与 Skill</text>
+  <text x="652" y="293" fill="rgba(148,163,184,0.5)" font-size="10">GitHub 仓库视为能力来源</text>
+
+  <circle cx="640" cy="322" r="4" fill="#22d3ee" opacity="0.8"/>
+  <text x="652" y="326" fill="rgba(226,232,240,0.85)" font-size="12">评估风险与降级</text>
+  <text x="652" y="343" fill="rgba(148,163,184,0.5)" font-size="10">安全、平台、适配风险</text>
+
+  <rect x="631" y="380" width="178" height="30" rx="5" fill="rgba(8,145,178,0.08)" stroke="rgba(8,145,178,0.2)" stroke-width="0.5"/>
+  <text x="720" y="399" text-anchor="middle" fill="#67e8f9" font-size="10" font-weight="500">📋 → 输出：能力清单</text>
+
+  <path d="M817,90 L825,90 L825,98" fill="none" stroke="rgba(8,145,178,0.3)" stroke-width="1"/>
+  <path d="M615,462 L615,470 L623,470" fill="none" stroke="rgba(8,145,178,0.3)" stroke-width="1"/>
+</g>
+
+<!-- ═══ Stage 4: 洞意 ═══ -->
+<g class="card">
+  <rect x="860" y="90" width="210" height="380" rx="8" fill="url(#g4)" stroke="rgba(5,150,105,0.25)" stroke-width="1"/>
+  <rect x="860" y="90" width="210" height="5" rx="2.5" fill="url(#bar4)"/>
+  <circle cx="890" cy="125" r="14" fill="rgba(5,150,105,0.2)" stroke="rgba(5,150,105,0.5)" stroke-width="1"/>
+  <text x="890" y="130" text-anchor="middle" fill="#6ee7b7" font-size="13" font-weight="700">4</text>
+  <text x="915" y="131" fill="#e2e8f0" font-size="18" font-weight="700">洞意</text>
+  <text x="860" y="152" fill="rgba(110,231,183,0.5)" font-size="10" font-family="monospace" dx="16">INSIGHT &amp; EXECUTION</text>
+  <line x1="876" y1="165" x2="1054" y2="165" stroke="rgba(5,150,105,0.15)" stroke-width="0.5"/>
+  <text x="876" y="190" fill="rgba(226,232,240,0.55)" font-size="11">执行验证并沉淀知识</text>
+
+  <circle cx="885" cy="222" r="4" fill="#34d399" opacity="0.8"/>
+  <text x="897" y="226" fill="rgba(226,232,240,0.85)" font-size="12">执行实现与验证</text>
+  <text x="897" y="243" fill="rgba(148,163,184,0.5)" font-size="10">测试、构建或手工验证</text>
+
+  <circle cx="885" cy="272" r="4" fill="#34d399" opacity="0.8"/>
+  <text x="897" y="276" fill="rgba(226,232,240,0.85)" font-size="12">区分事实/推断/建议</text>
+  <text x="897" y="293" fill="rgba(148,163,184,0.5)" font-size="10">未核验结论置信度 ≤ 0.6</text>
+
+  <circle cx="885" cy="322" r="4" fill="#34d399" opacity="0.8"/>
+  <text x="897" y="326" fill="rgba(226,232,240,0.85)" font-size="12">输出知识碎片</text>
+  <text x="897" y="343" fill="rgba(148,163,184,0.5)" font-size="10">可追溯、可复用、可脱敏</text>
+
+  <rect x="876" y="380" width="178" height="30" rx="5" fill="rgba(5,150,105,0.08)" stroke="rgba(5,150,105,0.2)" stroke-width="0.5"/>
+  <text x="965" y="399" text-anchor="middle" fill="#6ee7b7" font-size="10" font-weight="500">📦 → 输出：方案 + 知识</text>
+
+  <path d="M1062,90 L1070,90 L1070,98" fill="none" stroke="rgba(5,150,105,0.3)" stroke-width="1"/>
+  <path d="M860,462 L860,470 L868,470" fill="none" stroke="rgba(5,150,105,0.3)" stroke-width="1"/>
+</g>
+
+<!-- ═══ Exit Node ═══ -->
+<g filter="url(#gl)">
+  <rect x="1093" y="255" width="72" height="50" rx="25" fill="url(#exitG)" opacity="0.9"/>
+</g>
+<text x="1129" y="275" text-anchor="middle" fill="#fff" font-size="16">✨</text>
+<text x="1129" y="295" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="10" font-weight="600">清晰方案</text>
+
+<!-- ═══ Bottom Pipeline ═══ -->
+<line x1="120" y1="510" x2="1080" y2="510" stroke="rgba(139,92,246,0.12)" stroke-width="1"/>
+<!-- Pipeline dots -->
+<circle cx="120" cy="510" r="3" fill="#8b5cf6" opacity="0.4"/>
+<circle cx="360" cy="510" r="3" fill="#8b5cf6" opacity="0.4"/>
+<circle cx="600" cy="510" r="3" fill="#3b82f6" opacity="0.4"/>
+<circle cx="840" cy="510" r="3" fill="#06b6d4" opacity="0.4"/>
+<circle cx="1080" cy="510" r="3" fill="#10b981" opacity="0.4"/>
+<!-- Pipeline labels -->
+<text x="240" y="528" text-anchor="middle" fill="rgba(148,163,184,0.35)" font-size="9" font-family="monospace">INPUT → ANALYZE</text>
+<text x="480" y="528" text-anchor="middle" fill="rgba(148,163,184,0.35)" font-size="9" font-family="monospace">→ QUESTION → PLAN</text>
+<text x="720" y="528" text-anchor="middle" fill="rgba(148,163,184,0.35)" font-size="9" font-family="monospace">→ DECOMPOSE → SELECT</text>
+<text x="960" y="528" text-anchor="middle" fill="rgba(148,163,184,0.35)" font-size="9" font-family="monospace">→ EXECUTE → OUTPUT</text>
+
+<!-- Confidence badge -->
+<rect x="430" y="545" width="340" height="24" rx="12" fill="rgba(139,92,246,0.08)" stroke="rgba(139,92,246,0.2)" stroke-width="0.5"/>
+<text x="600" y="561" text-anchor="middle" fill="rgba(196,181,253,0.6)" font-size="10">⚡ 未经核验的结论，置信度自动限制在 ≤ 0.6 · 不捏造 · 不幻觉 · 每个结论追溯证据</text>
+
+</svg>

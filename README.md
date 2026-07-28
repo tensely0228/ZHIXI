@@ -19,7 +19,7 @@
 
 ## 关于
 
-**知悉（ZHIXI）** 是一个 AI Agent 技能，弥合“你以为自己想要的”和“你真正需要的”之间的鸿沟。它运行一套结构化四阶段思维框架，把模糊请求转化为可执行方案——并定义了一套知识沉淀格式，帮助你留下可复用的知识。
+**知悉（ZHIXI）** 是一个 AI Agent 技能，弥合"你以为自己想要的"和"你真正需要的"之间的鸿沟。它运行一套结构化四阶段思维框架，把模糊请求转化为可执行方案——并定义了一套知识沉淀格式，帮助你留下可复用的知识。
 
 大多数 AI 对话始于一个模糊提示，终于一个半成品答案。知悉改变了这一点：在每一步强制澄清——理解真实目标、审视假设、拆解能力单元、用可追溯的证据执行。
 
@@ -40,64 +40,18 @@
 
 ## 工作原理
 
-```mermaid
-flowchart LR
-    ENTER(["💭 模糊想法"])
+<p align="center">
+  <img src="./assets/zhixi-framework.svg" alt="知悉 · 四阶段思维框架" width="100%"/>
+</p>
 
-    subgraph S1 ["🔍 第一阶段 · 知己"]
-        direction TB
-        A1(("📝"))
-        A2(("🔬"))
-        A3(("❓"))
-    end
+<details>
+<summary>纯文本版流程图（不支持 SVG 时查看）</summary>
 
-    subgraph S2 ["❓ 第二阶段 · 问己"]
-        direction TB
-        B1(("⚖️"))
-        B2(("🚧"))
-        B3(("🎯"))
-    end
-
-    subgraph S3 ["📐 第三阶段 · 明需"]
-        direction TB
-        C1(("🧩"))
-        C2(("🔧"))
-        C3(("🛡️"))
-    end
-
-    subgraph S4 ["💡 第四阶段 · 洞意"]
-        direction TB
-        D1(("⚙️"))
-        D2(("🧪"))
-        D3(("📦"))
-    end
-
-    DONE(["✨ 清晰方案 + 知识碎片"])
-
-    ENTER ==> S1
-    A1 ~~~ A2 ~~~ A3
-    S1 ==>|"需求基线"| S2
-    B1 ~~~ B2 ~~~ B3
-    S2 ==>|"能力清单"| S3
-    C1 ~~~ C2 ~~~ C3
-    S3 ==>|"执行计划"| S4
-    D1 ~~~ D2 ~~~ D3
-    S4 ==> DONE
-
-    classDef entry fill:#e9d5ff,stroke:#7c3aed,stroke-width:2px,color:#4c1d95
-    classDef exit fill:#d1fae5,stroke:#059669,stroke-width:2px,color:#064e3b
-    classDef s1 fill:#f3e8ff,stroke:#7c3aed,color:#4c1d95
-    classDef s2 fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
-    classDef s3 fill:#cffafe,stroke:#0891b2,color:#164e63
-    classDef s4 fill:#d1fae5,stroke:#059669,color:#064e3b
-
-    class ENTER entry
-    class DONE exit
-    class A1,A2,A3 s1
-    class B1,B2,B3 s2
-    class C1,C2,C3 s3
-    class D1,D2,D3 s4
 ```
+💭 模糊想法 → [🔍 知己] → 需求基线 → [❓ 问己] → 审阅基线 → [📐 明需] → 能力清单 → [💡 洞意] → ✨ 清晰方案 + 知识碎片
+```
+
+</details>
 
 <table>
 <tr>
@@ -208,7 +162,7 @@ flowchart LR
 
 ### QoderWork 是什么？
 
-如果你是第一次接触，[QoderWork](https://docs.qoder.com/qoderwork/introduction) 是一款运行在本地的桌面 AI 助手应用。知悉是 QoderWork 的一个“技能”——可以理解为一种结构化方法论插件，增强 AI 思考和拆解问题的方式。
+如果你是第一次接触，[QoderWork](https://docs.qoder.com/qoderwork/introduction) 是一款运行在本地的桌面 AI 助手应用。知悉是 QoderWork 的一个"技能"——可以理解为一种结构化方法论插件，增强 AI 思考和拆解问题的方式。
 
 ### 前置要求
 
@@ -259,8 +213,8 @@ Copy-Item "skill\SKILL.md" "$env:USERPROFILE\.qoderworkcn\skills\zhixi\SKILL.md"
 
 | ✅ 适合 | ❌ 不适合 |
 |---------|----------|
-| 把模糊想法转化为可执行方案 | 简单的事实问答（“Python 怎么读文件”） |
-| 长程任务拆解和规划 | 一句话就能解决的请求（“帮我格式化这段 JSON”） |
+| 把模糊想法转化为可执行方案 | 简单的事实问答（"Python 怎么读文件"） |
+| 长程任务拆解和规划 | 一句话就能解决的请求（"帮我格式化这段 JSON"） |
 | 有明确目标但路径不清 | 纯闲聊或发散式讨论 |
 | 需要多角度权衡的决策 | 已有完整方案只需执行 |
 | 跨会话知识沉淀 | 一次性、不需要复用的操作 |
@@ -426,7 +380,7 @@ A: 不会。一切在你的 QoderWork 会话中本地运行，无额外外部依
 **Q: 可以在 QoderWork 之外使用吗？**
 A: SKILL.md 是一份结构化提示词。你可以将其适配到其他 AI 框架，但它针对 QoderWork 设计和测试。
 
-**Q: 知悉和让 AI“一步步思考”有什么区别？**
+**Q: 知悉和让 AI"一步步思考"有什么区别？**
 A: 知悉强制执行特定的四阶段结构、保留你的原始意图、提供知识碎片格式、包含 Agent 交接指引——它是完整的方法论，不只是提示词技巧。
 
 **Q: 知悉会自动存储和管理我的知识碎片吗？**

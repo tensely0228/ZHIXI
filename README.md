@@ -23,7 +23,7 @@
 
 大多数 AI 对话始于一个模糊提示，终于一个半成品答案。知悉改变了这一点：在每一步强制澄清——理解真实目标、审视假设、拆解能力单元、用可追溯的证据执行。
 
-**无需额外 API Key，无额外依赖，在你现有的 QoderWork 会话中运行。**
+**一套可独立使用的结构化思维方法论，无需额外 API Key，无额外依赖。**
 
 ---
 
@@ -160,18 +160,14 @@
 
 ## 快速开始
 
-### QoderWork 是什么？
-
-如果你是第一次接触，[QoderWork](https://docs.qoder.com/qoderwork/introduction) 是一款运行在本地的桌面 AI 助手应用。知悉是 QoderWork 的一个"技能"——可以理解为一种结构化方法论插件，增强 AI 思考和拆解问题的方式。
-
 ### 前置要求
 
-- 已安装 [QoderWork](https://docs.qoder.com/qoderwork/introduction) 桌面端（macOS 或 Windows）
-- 工作空间中配置了任意 LLM（知悉适配你使用的任何模型）
+- 一个支持自定义 System Prompt 的 AI 环境（QoderWork、Cursor、Cline、Claude Desktop 等均可）
+- 已配置可用的 LLM（知悉适配任何模型，不挑后端）
 
-### 安装
+### 安装（QoderWork）
 
-1. 将 `skill/SKILL.md` 复制到 QoderWork 技能目录：
+如果你使用 QoderWork，将 `skill/SKILL.md` 复制到技能目录即可：
 
 ```bash
 # macOS / Linux
@@ -187,9 +183,13 @@ Copy-Item "skill\SKILL.md" "$env:USERPROFILE\.qoderworkcn\skills\zhixi\SKILL.md"
 
 2. 完成。无需任何配置。
 
+### 其他环境
+
+如果你不使用 QoderWork，可以直接把 `skill/SKILL.md` 的内容粘贴到任何 AI 工具的 System Prompt 中，或者在对话开始时发送全文作为上下文。知悉的核心是一份结构化提示词，不依赖任何特定平台的功能。
+
 ### 使用方式
 
-在任意 QoderWork 对话中，直接说：
+在任意对话中，直接说：
 
 > **知悉** — 我想做一个 [你的想法]
 
@@ -449,7 +449,7 @@ knowledge/
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│                  QoderWork 宿主会话                   │
+│                    宿主会话                            │
 │                                                     │
 │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌─────┐│
 │  │  知己    │→ │  问己    │→ │  明需    │→ │ 洞意 ││
@@ -533,13 +533,13 @@ knowledge/
 ## 常见问题
 
 **Q: 知悉支持所有 LLM 吗？**
-A: 是的。知悉是提示词层面的技能，适配你 QoderWork 工作空间支持的任何模型。
+A: 是的。知悉是提示词层面的技能，适配任何模型。
 
 **Q: 会向外部服务器发送数据吗？**
-A: 不会。一切在你的 QoderWork 会话中本地运行，无额外外部依赖。
+A: 不会。一切在你的本地会话中运行，无额外外部依赖。
 
 **Q: 可以在 QoderWork 之外使用吗？**
-A: SKILL.md 是一份结构化提示词。你可以将其适配到其他 AI 框架，但它针对 QoderWork 设计和测试。
+A: 可以。`SKILL.md` 是一份结构化提示词，可以直接用于任何支持自定义 System Prompt 的 AI 工具。
 
 **Q: 知悉和让 AI"一步步思考"有什么区别？**
 A: 知悉强制执行特定的四阶段结构、保留你的原始意图、提供知识碎片格式、包含 Agent 交接指引——它是完整的方法论，不只是提示词技巧。
@@ -564,11 +564,11 @@ A: 不会。知悉定义知识沉淀的格式和方法论。存储、索引和�
 
 ### What is ZHIXI?
 
-**ZHIXI (知悉)** is an AI Agent skill for [QoderWork](https://docs.qoder.com/qoderwork/introduction) that bridges the gap between what you *think* you want and what you *actually* need. It applies a structured four-stage thinking framework to turn vague requests into executable plans — and defines a knowledge capture format to help you retain reusable, traceable knowledge along the way.
+**ZHIXI (知悉)** is an AI Agent skill that bridges the gap between what you *think* you want and what you *actually* need. It applies a structured four-stage thinking framework to turn vague requests into executable plans — and defines a knowledge capture format to help you retain reusable, traceable knowledge along the way.
 
 Most AI conversations start with a fuzzy prompt and end with a half-baked answer. ZHIXI changes that: at every stage it forces clarification — understanding your real goal, examining assumptions, decomposing capability units, and executing with traceable evidence.
 
-**No extra API keys, no additional dependencies — it runs inside your existing QoderWork session.**
+**A standalone structured thinking methodology. No extra API keys, no additional dependencies.**
 
 ### Core Features
 
@@ -594,12 +594,12 @@ Most AI conversations start with a fuzzy prompt and end with a half-baked answer
 
 **Prerequisites**
 
-- [QoderWork](https://docs.qoder.com/qoderwork/introduction) desktop app installed (macOS or Windows)
-- Any LLM configured in your workspace (ZHIXI works with whatever model you use)
+- Any AI environment that supports custom System Prompts (QoderWork, Cursor, Cline, Claude Desktop, etc.)
+- Any LLM configured and ready to use (ZHIXI works with any model)
 
-**Installation**
+**Installation (QoderWork)**
 
-1. Copy `skill/SKILL.md` to the QoderWork skills directory:
+If you use QoderWork, copy `skill/SKILL.md` to the skills directory:
 
 ```bash
 # macOS / Linux
@@ -617,7 +617,7 @@ Copy-Item "skill\SKILL.md" "$env:USERPROFILE\.qoderworkcn\skills\zhixi\SKILL.md"
 
 **Usage**
 
-In any QoderWork conversation, simply say:
+In any conversation, simply say:
 
 > **zhixi** — I want to build [your idea]
 
@@ -707,13 +707,13 @@ You can store fragments in a Git repo, a note-taking app, a static site, or buil
 ### FAQ
 
 **Q: Does ZHIXI work with all LLMs?**
-A: Yes. ZHIXI is a prompt-level skill — it works with any model your QoderWork workspace supports.
+A: Yes. ZHIXI is a prompt-level skill — it works with any model.
 
 **Q: Does it send data to external servers?**
-A: No. Everything runs locally inside your QoderWork session. No additional external dependencies.
+A: No. Everything runs locally in your session. No additional external dependencies.
 
 **Q: Can I use it outside QoderWork?**
-A: `SKILL.md` is a structured prompt. You can adapt it to other AI frameworks, but it is designed and tested for QoderWork.
+A: Yes. `SKILL.md` is a structured prompt that works with any AI tool supporting custom System Prompts.
 
 **Q: How is ZHIXI different from just asking AI to "think step by step"?**
 A: ZHIXI enforces a specific four-stage structure, preserves your original intent, provides a knowledge fragment format, and includes agent handoff guidelines — it is a complete methodology, not just a prompting trick.

@@ -48,7 +48,7 @@ When modifying `SKILL.md`:
 
 - Preserve the four-stage structure (知己 → 问己 → 明需 → 洞意)
 - Keep the YAML frontmatter intact
-- Test the modified skill in QoderWork before submitting
+- Test the modified skill in your AI environment before submitting
 - Ensure knowledge fragment format remains compatible
 - Do not add external API dependencies
 

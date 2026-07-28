@@ -21,7 +21,7 @@ What was changed and why.
 
 ## Testing
 
-- [ ] Tested in QoderWork with the modified SKILL.md
+- [ ] Tested the modified SKILL.md in at least one AI environment
 - [ ] No breaking changes to the four-stage flow
 - [ ] Knowledge fragment format is backward-compatible
 

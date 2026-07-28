@@ -19,8 +19,8 @@ A clear description of what went wrong.
 
 ## Environment
 
-- QoderWork version:
-- Model used (e.g., the model your QoderWork workspace is configured with):
+- AI environment (e.g., QoderWork, Cursor, Cline, Claude Desktop):
+- Model used:
 - OS:
 
 ## Severity

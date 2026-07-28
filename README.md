@@ -42,36 +42,165 @@
 
 ```mermaid
 flowchart LR
-    A["🔍 知己<br/>Self-Knowledge"] --> B["❓ 问己<br/>Self-Questioning"]
-    B --> C["📐 明需<br/>Requirement Clarity"]
-    C --> D["💡 洞意<br/>Insight & Execution"]
+    ENTER(["💭 模糊想法"])
 
-    A -.- A1["区分表层请求<br/>与真实目标"]
-    B -.- B1["明确价值、约束<br/>与成功标准"]
-    C -.- C1["拆解能力单元<br/>选择工具"]
-    D -.- D1["执行、验证<br/>沉淀知识"]
+    subgraph S1 ["🔍 第一阶段 · 知己"]
+        direction TB
+        A1(("📝"))
+        A2(("🔬"))
+        A3(("❓"))
+    end
 
-    style A fill:#7c3aed,stroke:#5b21b6,color:#fff
-    style B fill:#2563eb,stroke:#1d4ed8,color:#fff
-    style C fill:#0891b2,stroke:#0e7490,color:#fff
-    style D fill:#059669,stroke:#047857,color:#fff
+    subgraph S2 ["❓ 第二阶段 · 问己"]
+        direction TB
+        B1(("⚖️"))
+        B2(("🚧"))
+        B3(("🎯"))
+    end
+
+    subgraph S3 ["📐 第三阶段 · 明需"]
+        direction TB
+        C1(("🧩"))
+        C2(("🔧"))
+        C3(("🛡️"))
+    end
+
+    subgraph S4 ["💡 第四阶段 · 洞意"]
+        direction TB
+        D1(("⚙️"))
+        D2(("🧪"))
+        D3(("📦"))
+    end
+
+    DONE(["✨ 清晰方案 + 知识碎片"])
+
+    ENTER ==> S1
+    A1 ~~~ A2 ~~~ A3
+    S1 ==>|"需求基线"| S2
+    B1 ~~~ B2 ~~~ B3
+    S2 ==>|"能力清单"| S3
+    C1 ~~~ C2 ~~~ C3
+    S3 ==>|"执行计划"| S4
+    D1 ~~~ D2 ~~~ D3
+    S4 ==> DONE
+
+    classDef entry fill:#e9d5ff,stroke:#7c3aed,stroke-width:2px,color:#4c1d95
+    classDef exit fill:#d1fae5,stroke:#059669,stroke-width:2px,color:#064e3b
+    classDef s1 fill:#f3e8ff,stroke:#7c3aed,color:#4c1d95
+    classDef s2 fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    classDef s3 fill:#cffafe,stroke:#0891b2,color:#164e63
+    classDef s4 fill:#d1fae5,stroke:#059669,color:#064e3b
+
+    class ENTER entry
+    class DONE exit
+    class A1,A2,A3 s1
+    class B1,B2,B3 s2
+    class C1,C2,C3 s3
+    class D1,D2,D3 s4
 ```
 
-### 第一阶段：知己
+<table>
+<tr>
+<td width="25%" align="center" valign="top">
 
-区分表层请求与真实目标。原样保留用户的原话。标记哪些是已陈述的、哪些是推断的。最多问 1–3 个能改变方向的关键问题。
+<br/>
 
-### 第二阶段：问己
+**🔍 知己**
 
-明确价值和成功标准、约束和不可变条件、替代路径及其代价、验证标准，以及下一项关键决策。输出一份可审阅的需求基线。
+*Self-Knowledge*
 
-### 第三阶段：明需
+</td>
+<td width="25%" align="center" valign="top">
 
-把需求基线拆解为能力单元。每个单元包含：目标、输入/输出、验收标准、可用的 Skill/工具/Agent、风险和降级路径。把 GitHub 仓库视为能力来源，而非成品。
+<br/>
 
-### 第四阶段：洞意
+**❓ 问己**
 
-执行实现与验证。产出可追溯的知识碎片，严格区分事实、推断、建议、限制和来源。未经核验的结论置信度不超过 0.6。
+*Self-Questioning*
+
+</td>
+<td width="25%" align="center" valign="top">
+
+<br/>
+
+**📐 明需**
+
+*Requirement Clarity*
+
+</td>
+<td width="25%" align="center" valign="top">
+
+<br/>
+
+**💡 洞意**
+
+*Insight & Execution*
+
+</td>
+</tr>
+<tr>
+<td valign="top">
+
+📝 保留原始请求
+
+🔬 区分事实与推断
+
+❓ 提出 1-3 个关键问题
+
+</td>
+<td valign="top">
+
+⚖️ 明确价值与成功标准
+
+🚧 识别约束与代价
+
+🎯 锁定下一项关键决策
+
+</td>
+<td valign="top">
+
+🧩 拆解为能力单元
+
+🔧 匹配工具与 Skill
+
+🛡️ 评估风险与降级路径
+
+</td>
+<td valign="top">
+
+⚙️ 执行实现与验证
+
+🧪 区分事实/推断/建议
+
+📦 输出可追溯知识碎片
+
+</td>
+</tr>
+<tr>
+<td align="center">
+
+*→ 输出：需求基线*
+
+</td>
+<td align="center">
+
+*→ 输出：审阅基线*
+
+</td>
+<td align="center">
+
+*→ 输出：能力清单*
+
+</td>
+<td align="center">
+
+*→ 输出：方案 + 知识*
+
+</td>
+</tr>
+</table>
+
+> **未经核验的结论，置信度自动限制在 ≤ 0.6。** 不捏造，不幻觉，每个结论追溯证据。
 
 ---
 

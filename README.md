@@ -7,7 +7,7 @@
 **把模糊想法转成清晰行动，并在执行后留下可追溯、可复用的知识**
 
 [![License](https://img.shields.io/github/license/tensely0228/ZHIXI?style=flat-square)](./LICENSE)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue?style=flat-square)](./CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.0.1-blue?style=flat-square)](./CHANGELOG.md)
 [![QoderWork](https://img.shields.io/badge/QoderWork-Skill-7c3aed?style=flat-square)](https://docs.qoder.com/qoderwork/introduction)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](./CONTRIBUTING.md)
 
@@ -19,17 +19,21 @@
 
 ## About
 
-**ZHIXI (知悉)** is an AI Agent skill that bridges the gap between *what you think you want* and *what you actually need*. It runs a structured four-stage thinking framework that transforms fuzzy requests into actionable plans — while automatically capturing reusable knowledge along the way.
+**ZHIXI (知悉)** is an AI Agent skill that bridges the gap between *what you think you want* and *what you actually need*. It runs a structured four-stage thinking framework that transforms fuzzy requests into actionable plans — while defining a standard format for traceable knowledge output.
 
 Most AI interactions start with a vague prompt and end with a half-baked answer. ZHIXI changes that by forcing clarity at every step: understanding the real goal, questioning assumptions, decomposing capabilities, and executing with traceable evidence.
+
+> **Important:** ZHIXI is a *thinking methodology and output format specification*. It does not include a built-in knowledge base, storage system, or automated collection pipeline. The knowledge fragments it produces are structured Markdown documents — **you build the infrastructure** to store, search, and evolve them. See [Knowledge Capture](#knowledge-capture) for details.
 
 **No external API keys. No cloud dependencies. Runs inside your existing AI workspace.**
 
 ## 关于
 
-**知悉（ZHIXI）** 是一个 AI Agent 技能，弥合“你以为自己想要的”和“你真正需要的”之间的鸿沟。它运行一套结构化四阶段思维框架，把模糊请求转化为可执行方案——并在过程中自动沉淀可复用的知识。
+**知悉（ZHIXI）** 是一个 AI Agent 技能，弥合“你以为自己想要的”和“你真正需要的”之间的鸿沟。它运行一套结构化四阶段思维框架，把模糊请求转化为可执行方案——并定义了一套可追溯的知识输出格式标准。
 
 大多数 AI 对话始于一个模糊提示，终于一个半成品答案。知悉改变了这一点：在每一步强制澄清——理解真实目标、审视假设、拆解能力单元、用可追溯的证据执行。
+
+> **重要说明：** 知悉是一套*思维方法论和输出格式规范*。它不包含内置的知识库、存储系统或自动化采集管线。它产出的知识碎片是结构化的 Markdown 文档——**你需要自行搭建基础设施**来存储、检索和演进这些知识。详见[知识沉淀](#knowledge-capture)章节。
 
 **无需外部 API Key，无云端依赖，在你现有的 AI 工作空间中运行。**
 
@@ -38,7 +42,7 @@ Most AI interactions start with a vague prompt and end with a half-baked answer.
 ## Core Features
 
 - **Four-Stage Thinking Framework** — Structured flow from understanding to execution, no step skipped
-- **Knowledge Capture** — Auto-generates traceable, reusable knowledge fragments with confidence scores
+- **Knowledge Output Specification** — Defines a standard format for traceable, reusable knowledge fragments with confidence scores
 - **Agent-Native** — Designed for multi-agent handoff with full context propagation
 - **Zero Dependencies** — No external APIs, no extra keys, works with any LLM
 - **Intent Preservation** — Your original request is always preserved verbatim, never silently rewritten
@@ -57,7 +61,7 @@ flowchart LR
     A -.- A1["Distinguish surface request<br/>from real goal"]
     B -.- B1["Clarify value, constraints,<br/>success criteria"]
     C -.- C1["Decompose into capability<br/>units + select tools"]
-    D -.- D1["Execute, verify, and<br/>capture knowledge"]
+    D -.- D1["Execute, verify, and<br/>output knowledge fragments"]
 
     style A fill:#7c3aed,stroke:#5b21b6,color:#fff
     style B fill:#2563eb,stroke:#1d4ed8,color:#fff
@@ -96,6 +100,7 @@ Execute implementation and verification. Produce traceable knowledge fragments d
 
 ```bash
 # macOS / Linux
+mkdir -p ~/.qoderworkcn/skills/zhixi
 cp skill/SKILL.md ~/.qoderworkcn/skills/zhixi/SKILL.md
 ```
 
@@ -121,7 +126,29 @@ Any of these will activate ZHIXI: `知悉`, `zhixi`, `知己`, `问己`, `明需
 
 ## Knowledge Capture
 
-ZHIXI doesn't just help you think clearly — it leaves a trail of reusable knowledge.
+> **Scope clarification / 能力边界说明**
+>
+> ZHIXI defines **what knowledge fragments look like** (format, metadata, confidence scoring) and **when to produce them** (after execution in Stage 4). It does **NOT** include:
+>
+> - A knowledge base or database to store fragments
+> - Automatic collection, indexing, or search capabilities
+> - Knowledge deduplication, merging, or optimization
+> - Cross-session persistence of knowledge
+>
+> The fragments ZHIXI outputs are structured Markdown files. **You are responsible for building the infrastructure** to store, retrieve, connect, and evolve them. Think of ZHIXI as the "format spec" — not the "storage engine."
+
+> 知悉定义的是**知识碎片长什么样**（格式、元数据、可信度评分）和**什么时候产出**（在第四阶段执行之后）。它**不包含**：
+>
+> - 存储碎片的知识库或数据库
+> - 自动采集、索引或检索能力
+> - 知识去重、合并或优化
+> - 跨会话的知识持久化
+>
+> 知悉输出的是结构化 Markdown 文件。**你需要自行搭建基础设施**来存储、检索、关联和演进这些知识。把知悉理解为“格式规范”——而不是“存储引擎”。
+
+### What ZHIXI Does Provide
+
+ZHIXI ensures that every knowledge fragment it outputs follows a consistent, machine-readable format:
 
 ### Knowledge Slots (created in Stage 3)
 
@@ -162,29 +189,51 @@ tags:
 
 No fabrication. No hallucination. Every claim traced to evidence.
 
+### Building Your Own Knowledge Base
+
+If you want to persist and manage ZHIXI's output, here are some approaches you could explore:
+
+- **Local Markdown vault** (e.g., Obsidian, Logseq) — save fragments as `.md` files, use tags and backlinks to connect them
+- **Git-based knowledge repo** — commit fragments to a private repo, use PRs for review
+- **Vector database** (e.g., ChromaDB, Qdrant) — index fragments for semantic search
+- **Notion / Confluence** — import fragments as pages, leverage their built-in databases
+- **Custom scripts** — write a simple pipeline that watches for new fragments and routes them to your preferred storage
+
+ZHIXI gives you well-structured input. What you build on top is up to you.
+
 ---
 
 ## Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                  QoderWork Host Session              │
-│                                                     │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌─────┐│
-│  │  知己    │→ │  问己    │→ │  明需    │→ │ 洞意 ││
-│  │Zhi Ji    │  │Wen Ji    │  │Ming Xu   │  │Dong ││
-│  │          │  │          │  │          │  │ Yi  ││
-│  │ Intent   │  │Baseline  │  │Capability│  │Exec ││
-│  │Analysis  │  │Review    │  │Decomp.   │  │+KB  ││
-│  └──────────┘  └──────────┘  └──────────┘  └─────┘│
-│        ↕             ↕             ↕           ↕   │
-│  ┌─────────────────────────────────────────────────┐│
-│  │            Knowledge Fragment Store              ││
-│  └─────────────────────────────────────────────────┘│
-└─────────────────────────────────────────────────────┘
+│                  QoderWork Host Session                      │
+│                                                             │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌─────────────┐│
+│  │  知己    │→ │  问己    │→ │  明需    │→ │   洞意      ││
+│  │Zhi Ji    │  │Wen Ji    │  │Ming Xu   │  │   Dong Yi   ││
+│  │          │  │          │  │          │  │             ││
+│  │ Intent   │  │Baseline  │  │Capability│  │  Exec +     ││
+│  │Analysis  │  │Review    │  │Decomp.   │  │  Fragments  ││
+│  └──────────┘  └──────────┘  └──────────┘  └──────┬──────┘│
+│        ↕             ↕             ↕               │        │
+│  ┌─────────────────────────────────────────────────▼──────┐│
+│  │        Knowledge Fragment Output (Markdown)            ││
+│  └─────────────────────────┬─────────────────────────────┘│
+└────────────────────────────┼──────────────────────────────┘
+                             │
+                             ▼
+                    ┌────────────────┐
+                    │  YOUR INFRA    │
+                    │  (self-built)  │
+                    │  - Obsidian    │
+                    │  - Git repo    │
+                    │  - Vector DB   │
+                    │  - Notion ...  │
+                    └────────────────┘
 ```
 
-ZHIXI runs entirely within the host session. It follows the host's chosen model and never calls external services.
+ZHIXI runs entirely within the host session. It follows the host's chosen model and never calls external services. Knowledge fragments are output as Markdown — storage and management are external to ZHIXI.
 
 ---
 
@@ -202,7 +251,7 @@ See the [examples/](./examples/) directory for real-world usage:
 | Problem | Without ZHIXI | With ZHIXI |
 |---------|--------------|------------|
 | Vague prompts | AI guesses, you retry 5 times | Structured clarification in one pass |
-| Lost context | Each conversation starts from scratch | Knowledge fragments carry forward |
+| Lost context | Each conversation starts from scratch | Structured fragments you can persist externally |
 | Unverified claims | AI states things as facts | Every claim tagged: fact / inference / suggestion |
 | Agent handoff | Critical context gets dropped | Full context, constraints, and verification steps included |
 | Scope creep | No clear non-goals | Requirements baseline explicitly states what's out of scope |
@@ -227,6 +276,7 @@ Contributions are welcome! See [CONTRIBUTING.md](./CONTRIBUTING.md) for details.
 - Translations (Japanese, Korean, Spanish, etc.)
 - Integration guides for other AI agent frameworks
 - Visual diagrams and documentation improvements
+- Knowledge base integration examples (Obsidian plugin, Notion template, etc.)
 
 ---
 
@@ -235,6 +285,7 @@ Contributions are welcome! See [CONTRIBUTING.md](./CONTRIBUTING.md) for details.
 - [ ] v1.1 — Add multi-language support for knowledge fragment templates
 - [ ] v1.2 — Create visual workflow builder for the four stages
 - [ ] v1.3 — Integration with popular AI agent frameworks (LangChain, CrewAI, AutoGen)
+- [ ] v1.4 — Provide ready-made integration examples (Obsidian plugin, Notion template, CLI pipeline)
 - [ ] v2.0 — Knowledge graph: connect fragments into a searchable knowledge base
 
 ---
@@ -251,7 +302,13 @@ A: No. Everything runs locally in your session. Zero external dependencies.
 A: The SKILL.md is a structured prompt. You can adapt it for other AI frameworks, but it's designed and tested for QoderWork.
 
 **Q: What's the difference between ZHIXI and just asking AI to "think step by step"?**
-A: ZHIXI enforces a specific four-stage structure, preserves your original intent, captures knowledge fragments, and handles agent handoff — it's a complete methodology, not just a prompt trick.
+A: ZHIXI enforces a specific four-stage structure, preserves your original intent, outputs knowledge in a standardized fragment format, and handles agent handoff — it's a complete methodology, not just a prompt trick.
+
+**Q: Does ZHIXI automatically save knowledge to a database?**
+A: No. ZHIXI outputs structured Markdown fragments. You need to build or configure your own storage (Obsidian, Git, vector DB, etc.) to persist and manage them. See [Knowledge Capture](#knowledge-capture) for integration ideas.
+
+**Q: Can ZHIXI search or retrieve previously captured knowledge?**
+A: No. ZHIXI is a one-way producer of knowledge fragments. Search and retrieval depend on whatever storage system you've set up.
 
 ---
 

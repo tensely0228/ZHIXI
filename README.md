@@ -48,7 +48,7 @@
 <summary>纯文本版流程图（不支持 SVG 时查看）</summary>
 
 ```
-💭 模糊想法 → [🔍 知己] → 需求基线 → [❓ 问己] → 审阅基线 → [📐 明需] → 能力清单 → [💡 洞意] → ✨ 清晰方案 + 知识碎片
+💭 模糊想法 → [🔍 知己] → 结构化请求 → [❓ 问己] → 需求基线 → [📐 明需] → 能力清单 → [💡 洞意] → ✨ 清晰方案 + 知识碎片
 ```
 
 </details>
@@ -138,7 +138,7 @@
 </td>
 <td align="center">
 
-*→ 输出：审阅基线*
+*→ 输出：需求基线*
 
 </td>
 <td align="center">
@@ -241,7 +241,9 @@ Copy-Item "skill\SKILL.md" "$env:USERPROFILE\.qoderworkcn\skills\zhixi\SKILL.md"
   "title": "需要知道什么",
   "question": "执行完成后需要回答的单一问题",
   "kind": "procedure",
-  "requiredEvidence": ["实际执行结果", "来源或文件路径", "适用边界"]
+  "targetNodeId": "node-id",
+  "requiredEvidence": ["实际执行结果", "来源或文件路径", "适用边界"],
+  "destinationHint": "inbox"
 }
 ```
 

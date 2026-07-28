@@ -114,6 +114,10 @@ version: 1.0.1
 
 `kind` 只允许：`principle`、`procedure`、`decision_rule`、`data_contract`、`verified_finding`、`risk_boundary`、`open_question`。
 
+`targetNodeId`：可选，指向知识碎片的挂载目标节点（如评估对象、模块 ID），用于碎片归位。
+
+`destinationHint`：可选，建议碎片的存储分类（如 `inbox`、`tech-evaluation`、`architecture`），由存储层解释。
+
 `status` 允许值：`candidate`（待验证）、`verified`（已有证据支持）、`deprecated`（已过时或被替代）。
 
 `confidence` 阈值规则：有具体来源和证据支撑时可为 0.7–1.0；仅基于推断或无具体来源时不得高于 0.6。

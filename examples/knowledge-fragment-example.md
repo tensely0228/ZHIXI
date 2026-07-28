@@ -38,6 +38,8 @@ After actual evaluation in 洞意 (Insight & Execution), ZHIXI produces fragment
 ---
 type: knowledge-fragment
 status: verified
+privacy: sanitized
+source: "benchmark script ./scripts/benchmark_pdf.py"
 confidence: 0.85
 tags:
   - tech/pdf-parser
@@ -46,30 +48,30 @@ tags:
 
 # Chinese PDF Parsing: pymupdf4llm vs pdfplumber
 
-## Summary
+## 摘要 (Summary)
 For Chinese scanned documents, pymupdf4llm outperforms pdfplumber
 in text extraction accuracy (92% vs 78%) on mixed-layout documents.
 
-## Facts
+## 事实陈述 (Facts)
 - pymupdf4llm: 92% character accuracy on test corpus (50 pages)
 - pdfplumber: 78% character accuracy on same corpus
 - Both handle pure-text PDFs equally well (>98%)
 - pymupdf4llm is 3x faster on large documents
 
-## Inferences
+## 推断 (Inferences)
 - The accuracy gap likely comes from better CJK font handling in PyMuPDF
 - Performance advantage matters for batch processing, not single-file use
 
-## Suggestions
+## 建议 (Suggestions)
 - Use pymupdf4llm as primary parser
 - Keep pdfplumber as fallback for table-heavy documents
 
-## Applicability Boundaries
+## 适用边界 (Applicability Boundaries)
 - Tested on: Simplified Chinese, scanned at 300dpi
 - Not tested on: Traditional Chinese, low-resolution scans, handwritten text
 - Library versions: pymupdf4llm 0.15.0, pdfplumber 0.11.4
 
-## Sources
+## 来源 (Sources)
 - Benchmark script: ./scripts/benchmark_pdf.py
 - Test corpus: internal documents (50 pages, mixed layouts)
 ```
@@ -80,6 +82,8 @@ in text extraction accuracy (92% vs 78%) on mixed-layout documents.
 ---
 type: knowledge-fragment
 status: verified
+privacy: sanitized
+source: "derived from Fragment 1 benchmark results"
 confidence: 0.9
 tags:
   - decision/pdf-library
@@ -87,7 +91,7 @@ tags:
 
 # PDF Library Selection Decision Rule
 
-## Summary
+## 摘要 (Summary)
 Choose the PDF parsing library based on document type and volume.
 
 ## Decision Rule
@@ -98,11 +102,11 @@ Choose the PDF parsing library based on document type and volume.
 | Table-heavy | Any | pdfplumber (better table extraction) |
 | Mixed layout | Any | pymupdf4llm (better layout awareness) |
 
-## Applicability Boundaries
+## 适用边界 (Applicability Boundaries)
 - Based on 2026 library versions
 - May change as libraries update
 
-## Sources
+## 来源 (Sources)
 - Derived from Fragment 1 benchmark results
 ```
 
@@ -131,4 +135,4 @@ Each fragment is:
 - **Calibrated** — confidence scores reflect verification status
 - **Bounded** — applicability limits are explicit
 
-This is the knowledge ZHIXI leaves behind — not just answers, but *structured, reusable understanding*.
+> **Note:** ZHIXI defines the fragment format and methodology. The directory structure, storage system, and search capabilities shown above are an example of what you *could* build — ZHIXI itself does not manage storage.

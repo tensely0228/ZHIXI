@@ -20,7 +20,7 @@ A clear description of what went wrong.
 ## Environment
 
 - QoderWork version:
-- Model used (e.g., GPT-4, Claude, etc.):
+- Model used (e.g., the model your QoderWork workspace is configured with):
 - OS:
 
 ## Which Stage?

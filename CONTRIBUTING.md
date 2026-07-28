@@ -16,7 +16,7 @@ By participating in this project, you agree to maintain a respectful and inclusi
 
 ### Suggesting Features
 
-1. Check existing issues and discussions first
+1. Check [existing issues](https://github.com/tensely0228/ZHIXI/issues) first
 2. Use the feature request template
 3. Explain the problem your feature solves, not just the feature itself
 

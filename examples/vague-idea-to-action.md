@@ -1,3 +1,13 @@
+---
+type: knowledge-fragment
+status: candidate
+privacy: sanitized
+source: "ZHIXI example session output"
+confidence: 0.6
+tags:
+  - example/workflow
+---
+
 # Example: From Vague Idea to Action Plan
 
 ## Scenario
@@ -86,7 +96,10 @@ ZHIXI executes and produces knowledge fragments:
 ```markdown
 ---
 type: knowledge-fragment
-confidence: 0.8
+status: candidate
+privacy: sanitized
+source: "ZHIXI session execution result"
+confidence: 0.6
 tags:
   - procurement/supplier-quality
 ---

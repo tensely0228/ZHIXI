@@ -1,7 +1,7 @@
 ---
 name: zhixi
 description: "把模糊想法转成清晰行动，并在执行后留下可追溯、可复用的知识。四阶段流程：知己（区分表层请求与真实目标）、问己（明确价值约束与验证标准）、明需（拆能力单元、选工具技能）、洞意（执行交付、沉淀知识碎片）。当用户说：知悉、zhixi、知己、问己、明需、洞意、四阶段流程、知悉式任务拆解、把想法变清晰、帮我理清思路、需求澄清、意图分析时使用。"
-version: 1.0.0
+version: 1.0.1
 ---
 
 # 知悉 v1
@@ -113,6 +113,10 @@ version: 1.0.0
 ```
 
 `kind` 只允许：`principle`、`procedure`、`decision_rule`、`data_contract`、`verified_finding`、`risk_boundary`、`open_question`。
+
+`status` 允许值：`candidate`（待验证）、`verified`（已有证据支持）、`deprecated`（已过时或被替代）。
+
+`confidence` 阈值规则：有具体来源和证据支撑时可为 0.7–1.0；仅基于推断或无具体来源时不得高于 0.6。
 
 知识碎片输出格式：
 

@@ -8,7 +8,7 @@ Real-world usage examples of the ZHIXI (知悉) thinking framework.
 
 **Best for:** Understanding the complete four-stage flow in a practical scenario.
 
-Walks through a procurement use case — from "I want a supplier tracking tool" to a structured requirements baseline, decomposed capability units, and knowledge fragments. Demonstrates all four stages (知己 → 问己 → 明需 → 洞意) with concrete outputs.
+Walks through a personal productivity use case — from "I want a reading note tool" to a structured requirements baseline, decomposed capability units, and knowledge fragments. Demonstrates all four stages (知己 → 问己 → 明需 → 洞意) with concrete outputs.
 
 ### [Knowledge Fragment Lifecycle](./knowledge-fragment-example.md)
 
